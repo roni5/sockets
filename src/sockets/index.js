@@ -1,5 +1,5 @@
 import *  as types from '../constants/ActionTypes'
-import {addUser, messageReceived, populateUsersList} from '../actions'
+import {addUser, messageReceived, populateUsersList, openSocket, WEBSOCKET_OPEN, WEBSOCKET_CONNECT} from '../actions'
 
 const setupSocket = (dispatch, username) => {
 	const socket = new WebSocket('ws://localhost:8989')
@@ -22,6 +22,13 @@ const setupSocket = (dispatch, username) => {
 			case types.USERS_LIST:
 				dispatch(populateUsersList(data.users))
 				break
+			case types.WEBSOCKET_OPEN:
+				dispatch(openSocket(data.message))
+				break
+			case types.WEBSOCKET_CONNECT:
+				dispatch(setupSocket(data.message))
+				break
+				
 			default:
 				break
 		}
@@ -30,3 +37,4 @@ const setupSocket = (dispatch, username) => {
 }
 
 export default setupSocket
+

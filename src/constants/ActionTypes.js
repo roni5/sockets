@@ -2,3 +2,6 @@ export const ADD_MESSAGE = "ADD_MESSAGE"
 export const MESSAGE_RECEIVED = "MESSAGE_RECEIVED"
 export const ADD_USER = "ADD_USER"
 export const USERS_LIST = "USERS_LIST"
+export const WEBSOCKET_OPEN = "WEBSOCKET_OPEN";
+export const WEBSOCKET_CONNECT = "WEBSOCKET_CONNECT";
+export const FETCH_DATA = 'FETCH_DATA ';
